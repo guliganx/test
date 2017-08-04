@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<!-- log4j configuration -->
+<!-- TODO check after connect with Jenkins -->
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+    <appender name="console" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p - [%m] (%c(%F:%L))%n"/>
+           <!-- <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p [%c{1}] %m %n" /> -->
+        </layout>
+    </appender>
+
+    <!-- categories -->
+    <category name="org.springframework">
+        <priority value="OFF" />
+    </category>
+
+    <!--<appender name="file" class="org.apache.log4j.RollingFileAppender">
+        <param name="append" value="false" />
+        <param name="maxFileSize" value="10MB" />
+        <param name="maxBackupIndex" value="10" />
+        <param name="file" value="${catalina.home}/logs/myStruts1App.log" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p [%c{1}] %m %n" />
+        </layout>
+    </appender>-->
+
+    <root>
+        <level value="INFO"/>
+        <appender-ref ref="console"/>
+        <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p - [%m] - %(%F:%L)%n"/>
+        <!--<appender-ref ref="file" />-->
+    </root>
+</log4j:configuration>
